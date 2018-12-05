@@ -7,6 +7,8 @@ function alertMovieName() {
     alert(movieName);
 }
 
+renderButtons();
+
 // Function for printing the buttons to the page
 function renderButtons() {
 
