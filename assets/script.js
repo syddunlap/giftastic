@@ -2,24 +2,9 @@ $(document).ready(function () {
 
     // Initial array of moview
     var movies = ["Aristocats", "The Little Mermaid", "Snow White", "Cars"];
+    var a;
 
-    // A function to render the HTML to display the appropriate gif info
-    function displayMovieGif() {
-        var movie = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=YOURAPIKEY&limit=10";
-
-        // An AJAX call for the specific movie button being clicked
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-
-            // Lots more to add hereeeeeee
-            // ----------
-            // ----------
-            // ----------
-        })
-    }
+    renderButtons();
 
     // Function for printing the buttons to the page
     function renderButtons() {
@@ -31,7 +16,7 @@ $(document).ready(function () {
         for (var i = 0; i < movies.length; i++) {
 
             // Dynamically generate buttons for each movie in the array
-            var a = $("<button>");
+            a = $("<button>");
 
             // Add a class of movie to our button
             a.addClass("movie");
@@ -53,10 +38,10 @@ $(document).ready(function () {
             event.preventDefault();
 
             // Grab the input from the textbox
-            var movie = $("#userInput").val().trim();
+            var userInput = $("#userInput").val().trim();
 
             // Add the movie from the textbox to our array
-            movies.push(movie);
+            movies.push(userInput);
 
             // Calling our renderButtons function to print the new movie array
             renderButtons();
