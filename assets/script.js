@@ -1,13 +1,23 @@
 // Initial array of moview
 var movies = ["Aristocats", "The Little Mermaid", "Snow White", "Cars"];
 
-// Generic function for capturing the movie name from the data-attribute
-function alertMovieName() {
-    var movieName = $(this).attr("data-name");
-    alert(movieName);
-}
+// A function to render the HTML to display the appropriate gif info
+function displayMovieGif () {
+    var movie = $(this).attr("data-name");
+    var queryURL = "";
 
-renderButtons();
+    // An AJAX call for the specific movie button being clicked
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        
+        // Lots more to add hereeeeeee
+        // ----------
+        // ----------
+        // ----------
+    })
+}
 
 // Function for printing the buttons to the page
 function renderButtons() {
