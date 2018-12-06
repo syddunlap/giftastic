@@ -2,18 +2,21 @@
 h1 {
     font-family: 'Marcellus SC', serif;
     color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 /* Style the header background */
 .jumbotron {
     background-image: url("images/disneybackground.jpg");
     background-size: cover;
+    border-bottom: 3px solid black;
 }
 
 /* Style the font of the subheading in the jumbotron */
 .jumbotron p  {
     font-family: 'Markazi Text', serif; 
     color: white;
+    text-shadow: 2px 2px 4px #000000;
     font-size: 25px;
     border: none;
 }
@@ -21,11 +24,13 @@ h1 {
 /* Style the font of the webpage (other than the header) */
 .row {
     font-family: 'Markazi Text', serif;
+    font-size: 20px;
 }
 
 /* Style for the container holding the gifs */
 #gif-view {
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 /* Style the buttons */
@@ -33,20 +38,21 @@ button {
     border: 1px solid rgb(1, 1, 73);
     border-radius: 6px;
     margin: 1px;
+    background-image: linear-gradient(to bottom right, rgb(238, 129, 162), rgb(99,81,169));
 }
 
 /* Style the buttons on hover */
 button:hover {
-    background-color: rgb(1, 1, 73);
-    color: white;
+    background-image: linear-gradient(to bottom right, rgb(99,81,169), rgb(238, 129, 162));
 }
 
 /* Style the selected button */
 button.selected {
-    background-color: rgb(1, 1, 73);
-    color: white;
+    background-image: linear-gradient(to bottom right, rgb(99,81,169), rgb(238, 129, 162));
+    font-weight: bold;
 }
 
+/* Style the gif ratings */
 p {
     display: inline-table;
     border: 1px solid black;
@@ -54,6 +60,7 @@ p {
     margin-right: 1px;
 }
 
+/* Style the gifs */
 .gif {
     border: 1px solid black;
     border-radius: 6px;
@@ -69,7 +76,7 @@ body {
 
 .wrapper {
     min-height: 100%;
-    margin-bottom: 30px;
+    padding-bottom: 2px;
 }
 
 .push .footer {
@@ -87,3 +94,19 @@ body {
     font-family: 'Markazi Text', serif;
 }
 
+/* Background for the body of the webpage */
+.wrapper {
+    background-image: linear-gradient(to bottom right, rgb(238, 129, 162), rgb(99,81,169));
+}
+
+/* Form background & gif view background opacity when populated with gifs */
+.border {
+    background: rgb(255, 255, 255, 0.2);
+}
+
+#instructions {
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 25px;
+}
