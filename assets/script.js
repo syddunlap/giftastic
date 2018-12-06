@@ -42,8 +42,16 @@ $(document).ready(function () {
         // Grab the input from the textbox
         var userInput = $("#userInput").val().trim();
 
+        // If the user doesn't type anything, but hits the submit button, alert that they didn't type anything!
+        if (userInput === "") {
+            $("#userInput").val("Type a Movie Here!");
+
+        // Clear out input box if they press submit after previous if statement
+        } else if (userInput === "Type a Movie Here!"); {
+            $("#userInput").val("");
+
         // Only add to the array if it's not already in the array
-        if (movies.includes(userInput) === false) {
+        } else if (movies.includes(userInput) === false) {
 
             // Add the movie from the textbox to our array
             movies.push(userInput);
