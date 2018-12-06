@@ -47,7 +47,7 @@ $(document).ready(function () {
             $("#userInput").val("Type a Movie Here!");
 
         // Clear out input box if they press submit after previous if statement
-        } else if (userInput === "Type a Movie Here!"); {
+        } else if (userInput === "Type a Movie Here!") {
             $("#userInput").val("");
 
         // Only add to the array if it's not already in the array
@@ -91,6 +91,7 @@ $(document).ready(function () {
 
             // Clear out the html of any gifs already there
             $("#gif-view").empty();
+            $(".gifbox").addClass("border border-dark");
 
             // For loop to go through all the of the GIFS
             for (var i = 0; i < gifs.length; i++) {
@@ -116,7 +117,8 @@ $(document).ready(function () {
                     disneyMovie.attr("data-animate", gifs[i].images.fixed_height_small.url);
                     disneyMovie.attr("data-still", gifs[i].images.fixed_height_small_still.url);
 
-                    // Appending image & rating to HTML
+                    // Appending image & rating to HTML w/ instructions to play the gif
+                    $("#instructions").text("Click the image to play the Gif!");
                     $("#gif-view").prepend(gifInfo);
                     $("#gif-view").prepend(disneyMovie);
                 }
