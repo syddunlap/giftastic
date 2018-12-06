@@ -8,6 +8,10 @@ h1 {
 /* Style the header background */
 .jumbotron {
     background-image: url("images/disneybackground.jpg");
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     border-bottom: 3px solid black;
 }
