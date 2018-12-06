@@ -1,0 +1,44 @@
+/* Style the header */
+h1 {
+    font-family: 'Marcellus SC', serif;
+    color: white;
+}
+
+/* Style the header background */
+.jumbotron {
+    background-image: url("images/disneybackground.jpg");
+    background-size: cover;
+}
+
+/* Style the font of the subheading in the jumbotron */
+.jumbotron p  {
+    font-family: 'Markazi Text', serif; 
+    color: white;
+    font-size: 25px;
+}
+
+/* Style the font of the webpage (other than the header) */
+.row {
+    font-family: 'Markazi Text', serif;
+}
+
+/* Style for the container holding the gifs */
+#gif-view {
+    padding-top: 10px;
+}
+
+/* Style the buttons */
+button {
+    border-radius: 6px;
+    margin: 1px;
+}
+
+/* Style the footer */
+.footer {
+    background: rgb(113, 99, 235);
+    color: white;
+    padding-top: 5px;
+    font-family: 'Markazi Text', serif;
+}
+
+

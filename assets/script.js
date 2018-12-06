@@ -51,14 +51,24 @@ $(document).ready(function () {
         $("#userInput").val("");
     })
 
-
+    // Function that runs the API Call
     function getAPIData(movie) {
+
+        // Variable for API Key
         var apiKey = "lNrcuWVzgpolH5AD0pc4lmBaZc6pmTKl";
+
+        // Variable for query URL
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=disney " + movie + "&api_key=" + apiKey + "&limit=10";
+
+        // API Call
         $.ajax({
             url: queryURL,
             method: "GET"
+
+        // Wait until we get response from API call, then run the following response
         }).then(function (response) {
+
+            // Grab the response.data and store it in a variable
             var gifs = response.data;
             console.log(response.data);
 
@@ -68,6 +78,7 @@ $(document).ready(function () {
             // For loop to go through all the of the GIFS
             for (var i = 0; i < gifs.length; i++) {
 
+                // If the rating is NOT r or pg-13
                 if (gifs[i].rating !== "r" && gifs[i].rating !== "pg-13") {
 
                     // Create a var to hold the rating
@@ -81,14 +92,14 @@ $(document).ready(function () {
 
                     // Give the gifs attributes from the API results
                     disneyMovie.addClass("gif");
-                    disneyMovie.attr("src", gifs[i].images.original_still.url);
+                    disneyMovie.attr("src", gifs[i].images.fixed_width_still.url);
 
-                    // Data attributes
+                    // Data attributes to store in the HTML for later use when clicked to play & pause
                     disneyMovie.attr("data-state", "still");
-                    disneyMovie.attr("data-animate", gifs[i].images.original.url);
-                    disneyMovie.attr("data-still", gifs[i].images.original_still.url);
+                    disneyMovie.attr("data-animate", gifs[i].images.fixed_width.url);
+                    disneyMovie.attr("data-still", gifs[i].images.fixed_width_still.url);
 
-                    // Appending image & rating
+                    // Appending image & rating to HTML
                     $("#gif-view").prepend(gifInfo);
                     $("#gif-view").prepend(disneyMovie);
                 }
@@ -96,18 +107,38 @@ $(document).ready(function () {
         });
     }
 
+    // On click event for when a Movie name button is clicked
     $("#buttons-view").on("click", ".movie", function (event) {
+
+        // Store the movie name with the attribute data-name
         var movie = $(this).attr("data-name");
+
+        // Get the API data from the movie this this data-name
         getAPIData(movie);
     });
 
+    // On click event for when a gif is clicked
     $("#gif-view").on("click", ".gif", function(event) {
+
+        // Grab the state of the gif and store it in a variable
         var state = $(this).attr("data-state");
+
+        // if the state is still...
         if (state === "still") {
+
+            // Change the image source to the data-animate attribute url
             $(this).attr("src", $(this).attr("data-animate"));
+
+            // Change the data-state attribute of the image to animate
             $(this).attr("data-state", "animate");
+
+        // if the state is not still (if it is "animate")
         } else {
+
+            // Change the image source to the data-still attribute url 
             $(this).attr("src", $(this).attr("data-still"));
+
+            // Change the data-state attribute of the image to still
             $(this).attr("data-state", "still");
         }
     });
