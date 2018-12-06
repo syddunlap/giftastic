@@ -15,6 +15,7 @@ h1 {
     font-family: 'Markazi Text', serif; 
     color: white;
     font-size: 25px;
+    border: none;
 }
 
 /* Style the font of the webpage (other than the header) */
@@ -29,16 +30,60 @@ h1 {
 
 /* Style the buttons */
 button {
+    border: 1px solid rgb(1, 1, 73);
     border-radius: 6px;
     margin: 1px;
 }
 
-/* Style the footer */
+/* Style the buttons on hover */
+button:hover {
+    background-color: rgb(1, 1, 73);
+    color: white;
+}
+
+/* Style the selected button */
+button.selected {
+    background-color: rgb(1, 1, 73);
+    color: white;
+}
+
+p {
+    display: inline-table;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin-right: 1px;
+}
+
+.gif {
+    border: 1px solid black;
+    border-radius: 6px;
+    margin-top: 3px;
+    text-align: center;
+    margin-right: 1px;
+}
+
+/* Below code makes a sticky footer */
+body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: 30px;
+}
+
+.push .footer {
+    height: 30px;
+}
+
+/* Styling for the footer text */
 .footer {
-    background: rgb(113, 99, 235);
+    text-align: right;
+    padding-bottom: 1px;
+    padding-right: 5px;
+    background: rgb(1, 1, 73);
     color: white;
     padding-top: 5px;
     font-family: 'Markazi Text', serif;
 }
-
 

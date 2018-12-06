@@ -4,6 +4,7 @@ $(document).ready(function () {
     var movies = ["Aladdin", "Snow White", "Beauty and the Beast", "Little Mermaid"];
     var a;
 
+    // Call the renderButtons function to have initial buttons on the page
     renderButtons();
 
     // Function for printing the buttons to the page
@@ -41,14 +42,22 @@ $(document).ready(function () {
         // Grab the input from the textbox
         var userInput = $("#userInput").val().trim();
 
-        // Add the movie from the textbox to our array
-        movies.push(userInput);
+        // Only add to the array if it's not already in the array
+        if (movies.includes(userInput) === false) {
 
-        // Calling our renderButtons function to print the new movie array
-        renderButtons();
+            // Add the movie from the textbox to our array
+            movies.push(userInput);
 
-        // Clear the user input
-        $("#userInput").val("");
+            // Calling our renderButtons function to print the new movie array
+            renderButtons();
+
+            // Clear the user input
+            $("#userInput").val("");
+
+        // If userInput is already a part of the movie array, clear the userInput text.
+        } else {
+            $("#userInput").val("");
+        }
     })
 
     // Function that runs the API Call
@@ -65,7 +74,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
 
-        // Wait until we get response from API call, then run the following response
+            // Wait until we get response from API call, then run the following response
         }).then(function (response) {
 
             // Grab the response.data and store it in a variable
@@ -83,7 +92,7 @@ $(document).ready(function () {
 
                     // Create a var to hold the rating
                     var rating = gifs[i].rating;
-                    
+
                     // Var to store gif image
                     var disneyMovie = $("<img>");
 
@@ -92,12 +101,12 @@ $(document).ready(function () {
 
                     // Give the gifs attributes from the API results
                     disneyMovie.addClass("gif");
-                    disneyMovie.attr("src", gifs[i].images.fixed_width_still.url);
+                    disneyMovie.attr("src", gifs[i].images.fixed_height_small_still.url);
 
                     // Data attributes to store in the HTML for later use when clicked to play & pause
                     disneyMovie.attr("data-state", "still");
-                    disneyMovie.attr("data-animate", gifs[i].images.fixed_width.url);
-                    disneyMovie.attr("data-still", gifs[i].images.fixed_width_still.url);
+                    disneyMovie.attr("data-animate", gifs[i].images.fixed_height_small.url);
+                    disneyMovie.attr("data-still", gifs[i].images.fixed_height_small_still.url);
 
                     // Appending image & rating to HTML
                     $("#gif-view").prepend(gifInfo);
@@ -115,10 +124,16 @@ $(document).ready(function () {
 
         // Get the API data from the movie this this data-name
         getAPIData(movie);
+
+        // Take the selected class off of all the buttons
+        $('button').removeClass('selected');
+
+        // Add the selected class to the button that is clicked (for CSS styling)
+        $(this).addClass('selected');
     });
 
     // On click event for when a gif is clicked
-    $("#gif-view").on("click", ".gif", function(event) {
+    $("#gif-view").on("click", ".gif", function (event) {
 
         // Grab the state of the gif and store it in a variable
         var state = $(this).attr("data-state");
@@ -132,7 +147,7 @@ $(document).ready(function () {
             // Change the data-state attribute of the image to animate
             $(this).attr("data-state", "animate");
 
-        // if the state is not still (if it is "animate")
+            // if the state is not still (if it is "animate")
         } else {
 
             // Change the image source to the data-still attribute url 

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Markazi+Text" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -16,46 +16,52 @@
 </head>
 
 <body>
-    
-    <!-- Page Header displaying title and instructions -->
-    <div class="jumbotron jumbotron-fluid text-center">
+
+    <!-- Wrapper for page -->
+    <div class="wrapper">
+
+        <!-- Page Header displaying title and instructions -->
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="container">
+                <h1 class="display-4">DISNEY GIFS</h1>
+                <p class="lead">Click a Disney Movie to Display the Gifs, input your own to add a button!</p>
+            </div>
+        </div>
+
+
         <div class="container">
-            <h1 class="display-4">DISNEY GIFS</h1>
-            <p class="lead">Click a Disney Movie to Display the Gifs, input your own to add a button!</p>
-        </div>
-    </div>
-    
-    
-    <div class="container">
-        <!-- First row where Buttons will get Put from JavaScript -->
-        <div class="row border-dark">
-            <div id="buttons-view"></div>
-        </div>
-
-        <!-- Second row -->
-        <div class="row mt-2">
-            <!-- Column with the div holding gif images -->
-            <div class="col-9 border border-dark">
-                <div id="gif-view"></div>
+            <!-- First row where Buttons will get Put from JavaScript -->
+            <div class="row border-dark">
+                <div id="buttons-view"></div>
             </div>
-            <!-- Column with the div holding the user input box -->
-            <div class="col-3 border border-dark">
-                <form>
-                    <div class="form-group pt-2">
-                        <label for="userInput">Add a Movie!</label>
-                        <input type="text" class="form-control" id="userInput" placeholder="">
-                        <br>
-                        <button id="add-movie" type="submit">Submit!</button>
-                    </div>
-                </form>
+
+            <!-- Second row -->
+            <div class="row mt-2">
+                <!-- Column with the div holding gif images -->
+                <div class="col-9 border border-dark">
+                    <div id="gif-view"></div>
+                </div>
+                <!-- Column with the div holding the user input box -->
+                <div class="col-3 border border-dark">
+                    <form>
+                        <div class="form-group pt-2">
+                            <label for="userInput">Add a Movie!</label>
+                            <input type="text" class="form-control" id="userInput" placeholder="">
+                            <br>
+                            <button id="add-movie" type="submit">Submit!</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
+    <div class="push"></div>
+    
     <!-- Page Footer -->
-<div class="footer fixed-bottom container-fluid pb-1 text-right">
+    <footer class="footer">
         Made by Sydney Dunlap © 2018
-</div>
+    </footer>
 
 </body>
 
